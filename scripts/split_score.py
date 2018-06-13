@@ -9,6 +9,8 @@ parser.add_argument('--num-buckets', dest='num_buckets', type=int, required=True
                     help='Number of buckets to be generated')
 parser.add_argument('--trg', dest='trg', type=str, required=True,
                     help='Target file for recording the bucket for each sentence')
+parser.add_argument('--reverse', dest='reverse', action='store_true',
+                    help='Reverse the scores to make easy buckets map to high scores')
 
 args = parser.parse_args()
 
@@ -26,7 +28,10 @@ for s in range(len(scores)):
     for i in range(len(breaks)-1):
         s_score = scores[s]
         if breaks[i] <= s_score and breaks[i+1] >= s_score:
-            sen_buckets.append(str(i))
+            if args.reverse:
+                sen_buckets.append(str(args.num_buckets-1-i))
+            else:
+                sen_buckets.append(str(i))
             break
 
 # Print number of sentences in each bucket
