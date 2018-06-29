@@ -46,19 +46,19 @@ for i in range(len(bks)):
     per_change = float(num_change)/len(combine_scores) * 100
     print("********************************************************************")
     print("Number and percentage of changed scores compared to {0}: {1}, {2:.2f}%".format(score, num_change, per_change))
-    print("Distribution of scores in {0}:\n {1}".format(score, ",".join(["{0:2f}%".format(float(bks[i].count(b))/len(combine_scores)) for b in range(len(set(bks[i])))])))
+    print("Distribution of scores in {0}:\n {1}".format(score, ",".join(["{0:.2f}%".format(float(bks[i].count(b))/len(combine_scores)*100) for b in range(len(set(bks[i])))])))
 
 print("#######################################################")
-print("New distribution of scores is: " + ",".join(["{0:2f}%".format(float(combine_scores.count(b))/len(combine_scores)) for b in range(len(set(combine_scores)))]))
+print("New distribution of scores is: " + ",".join(["{0:.2f}%".format(float(combine_scores.count(b))/len(combine_scores)*100) for b in range(len(set(combine_scores)))]))
 
 # ********************************************************************
 # Number and percentage of changed scores compared to ../scores/model_scores_ted/ted.1best_score.en.bk: 51039, 33.66%
 # Distribution of scores in ../scores/model_scores_ted/ted.1best_score.en.bk:
-#  0.084457%,0.192057%,0.283782%,0.294011%,0.145693%
+#  8.45%,19.21%,28.38%,29.40%,14.57%
 # ********************************************************************
 # Number and percentage of changed scores compared to ../scores/data_scores_ted/ted.sentence_max_rank.en.bk: 112362, 74.10%
 # Distribution of scores in ../scores/data_scores_ted/ted.sentence_max_rank.en.bk:
-#  0.327079%,0.220996%,0.173716%,0.147982%,0.130227%
+#  32.71%,22.10%,17.37%,14.80%,13.02%
 # #######################################################
-# New distribution of scores is: 0.074518%,0.281348%,0.299201%,0.260653%,0.084279%
+# New distribution of scores is: 7.45%,28.13%,29.92%,26.07%,8.43%
 
